@@ -2,7 +2,7 @@
   "name": "pino-pretty-express",
   "version": "1.0.2",
   "description": "Pino middleware for Express and alternative prettifier",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "babel src -d dist -s",
     "test": "jest"
@@ -11,6 +11,9 @@
     "type": "git",
     "url": "git+https://github.com/jlyonsmith/pino-pretty-express.git"
   },
+  "files": [
+    "dist/**"
+  ],
   "keywords": [
     "pino",
     "pretty",

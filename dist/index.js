@@ -1,16 +1,34 @@
-import chalk from 'chalk';
-import split from 'split2';
-import Parse from 'fast-json-parse';
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.pretty = pretty;
+exports.config = config;
+
+var _chalk = require('chalk');
+
+var _chalk2 = _interopRequireDefault(_chalk);
+
+var _split = require('split2');
+
+var _split2 = _interopRequireDefault(_split);
+
+var _fastJsonParse = require('fast-json-parse');
+
+var _fastJsonParse2 = _interopRequireDefault(_fastJsonParse);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const levelMap = {
-  60: chalk.red('FATAL'),
-  50: chalk.red('ERROR'),
-  40: chalk.yellow('WARN'),
+  60: _chalk2.default.red('FATAL'),
+  50: _chalk2.default.red('ERROR'),
+  40: _chalk2.default.yellow('WARN'),
   30: 'INFO',
-  20: chalk.cyan('DEBUG'),
-  10: chalk.cyan('TRACE')
+  20: _chalk2.default.cyan('DEBUG'),
+  10: _chalk2.default.cyan('TRACE')
 };
-export function pretty(options) {
+function pretty(options) {
   const eol = options.eol || '\n';
 
   function isPinoLine(line) {
@@ -18,7 +36,7 @@ export function pretty(options) {
   }
 
   function parseLine(line) {
-    const parsed = new Parse(line);
+    const parsed = new _fastJsonParse2.default(line);
     const obj = parsed.value;
 
     if (parsed.err || !isPinoLine(obj)) {
@@ -28,21 +46,21 @@ export function pretty(options) {
     const time = new Date(obj.time).toISOString();
 
     if (obj.req && obj.res) {
-      const method = chalk.green(obj.req.method);
+      const method = _chalk2.default.green(obj.req.method);
       const url = obj.req.originalUrl;
       const responseTime = obj.res.responseTime;
       const remoteAddr = obj.req.ip;
       const length = obj.res.headers['Content-Length'] || 0;
       let status = obj.res.statusCode;
 
-      status = status >= 500 ? chalk.red(status) : status >= 400 ? chalk.yellow(status) : status >= 300 ? chalk.cyan(status) : status >= 200 ? chalk.green(status) : status;
+      status = status >= 500 ? _chalk2.default.red(status) : status >= 400 ? _chalk2.default.yellow(status) : status >= 300 ? _chalk2.default.cyan(status) : status >= 200 ? _chalk2.default.green(status) : status;
 
       return `[${time}] ${remoteAddr} - ${method} ${url} ${status} ${responseTime} ms - ${length}${eol}`;
     } else {
       const level = levelMap[obj.level] || 'USER';
       const pid = obj.pid;
       const hostname = obj.hostname;
-      let line2 = `[${time}] ${level} (${pid} on ${hostname}): ${chalk.cyan(obj.msg)}${eol}`;
+      let line2 = `[${time}] ${level} (${pid} on ${hostname}): ${_chalk2.default.cyan(obj.msg)}${eol}`;
 
       if (obj.type === 'Error') {
         line2 += `${obj.stack.split(/\r?\n/).slice(1).join(eol)}${eol}`;
@@ -52,10 +70,10 @@ export function pretty(options) {
     }
   }
 
-  return split(parseLine);
+  return (0, _split2.default)(parseLine);
 }
 
-export function config(options) {
+function config(options) {
   const log = options.log;
   const isProduction = options.isProduction || false;
 
