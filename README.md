@@ -1,13 +1,17 @@
 # Pino Express
 
-This is middleware for the [Pino](https://github.com/pinojs/pino) logging library, that also includes an alternative implementation of the `pretty()` function that comes with Pino.  It formats regular Pino messages and the middleware formats HTTP activity messages, similarly to the `dev` format of the [morgan](https://github.com/expressjs/morgan) Express middleware.  The logging middleware can be used in development and production.  The pretty formatter is intended to be used in development environments only.
+This is middleware for the [Pino](https://github.com/pinojs/pino) logging library, that also includes an alternative implementation of the `pretty()` function that comes with Pino.
+
+It formats regular Pino messages and the middleware formats HTTP activity messages, similarly to the [dev](https://github.com/expressjs/morgan#dev) format of the [morgan](https://github.com/expressjs/morgan) Express middleware.
+
+The logging middleware can be used in development and production.  The pretty formatter is intended to be used in development environments only.
 
 ## Installation
 
 Use this package with Pino and a Node Express server.  First install in your package:
 
 ```
-npm install pino-pretty-express
+npm install pino-express
 ```
 
 Then, add the following initialization to your your code:
