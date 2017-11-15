@@ -1,7 +1,7 @@
 {
   "name": "pino-pretty-express",
   "version": "1.0.0",
-  "description": "Simple Pino middleware for Express",
+  "description": "Pino middleware for Express and alternative prettifier",
   "main": "index.js",
   "scripts": {
     "build": "babel src -d dist -s",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jlyonsmith/pino-express.git"
+    "url": "git+https://github.com/jlyonsmith/pino-pretty-express.git"
   },
   "keywords": [
     "pino",
@@ -19,9 +19,9 @@
   "author": "John Lyon-Smith",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jlyonsmith/pino-express/issues"
+    "url": "https://github.com/jlyonsmith/pino-pretty-express/issues"
   },
-  "homepage": "https://github.com/jlyonsmith/pino-express#readme",
+  "homepage": "https://github.com/jlyonsmith/pino-pretty-express#readme",
   "dependencies": {
     "chalk": "^2.3.0",
     "fast-json-parse": "^1.0.3",

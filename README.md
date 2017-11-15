@@ -1,4 +1,4 @@
-# Pino Express
+# Pino Pretty Express
 
 This is middleware for the [Pino](https://github.com/pinojs/pino) logging library, that also includes an alternative implementation of the `pretty()` function that comes with Pino.
 
@@ -11,7 +11,7 @@ The logging middleware can be used in development and production.  The pretty fo
 Use this package with Pino and a Node Express server.  First install in your package:
 
 ```
-npm install pino-express
+npm install pino-pretty-express
 ```
 
 Then, add the following initialization to your your code:
@@ -19,7 +19,7 @@ Then, add the following initialization to your your code:
 ```Javascript
 import fs from 'fs'
 import pino from 'pino'
-import * as pinoExpress from 'pino-express'
+import * as pinoExpress from 'pino-pretty-express'
 
 const isProduction = (process.env.NODE_ENV == 'production')
 const pinoOpts = { name: 'app-name' }
