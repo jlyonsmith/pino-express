@@ -1,6 +1,6 @@
 {
   "name": "pino-pretty-express",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Pino middleware for Express and alternative prettifier",
   "main": "index.js",
   "scripts": {
