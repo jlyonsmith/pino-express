@@ -17,6 +17,8 @@ export function pretty(options) {
     return line &&
       line.hasOwnProperty('hostname') &&
       line.hasOwnProperty('pid') &&
+      line.hasOwnProperty('level') &&
+      line.hasOwnProperty('time') &&
       (line.hasOwnProperty('v') && line.v === 1)
   }
 
@@ -34,7 +36,7 @@ export function pretty(options) {
       const method = chalk.green(obj.req.method)
       const url = obj.req.originalUrl
       const responseTime = obj.res.responseTime
-      const remoteAddr = obj.req.ip
+      const remoteAddr = obj.req.hostname
       const length = obj.res.headers['Content-Length'] || 0
       let status = obj.res.statusCode
 
@@ -83,7 +85,7 @@ export function config(options) {
 
       const reqInfo = {
         method: this.req.method,
-        ip: this.req.ip,
+        hostname: this.req.hostname,
         originalUrl: this.req.originalUrl
       }
 

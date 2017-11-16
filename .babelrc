@@ -4,6 +4,11 @@
   ],
   "plugins": [
     "transform-class-properties",
-    "transform-object-rest-spread"
-  ]
+    "transform-object-rest-spread",
+  ],
+  "env": {
+    "test": {
+      "plugins": ["istanbul"]
+    }
+  }
 }
